@@ -1,0 +1,24 @@
+SELECT c.Nombre, c.ciudad, o.TOTAL
+FROM Ordenes o
+INNER JOIN Clientes c ON o.IDCLIENTE = c.IDCLIENTE
+INNER JOIN Productos p ON o.IDPRODUCTO = p.IDPRODUCTO 
+WHERE c.ciudad = 'Ciudad de México'
+AND o.Fecha BETWEEN '2023-01-01' AND '2023-03-31';
+
+
+
+
+
+SELECT c.Nombre, o.IDORDEN,o.Fecha,o.Total
+FROM Clientes c
+LEFT JOIN Ordenes o ON c.IDCLIENTE = o.IDCLIENTE;
+
+
+    o.IDORDEN,
+    c.Nombre AS Cliente,
+    p.Nombre AS Producto,
+    o.Fecha,
+    o.Total
+FROM Ordenes o
+INNER JOIN Clientes c ON o.IDCLIENTE = c.IDCLIENTE
+INNER JOIN Productos p ON o.IDPRODUCTO = p.IDPRODUCTO;
