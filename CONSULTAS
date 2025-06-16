@@ -151,4 +151,23 @@ RIGHT JOIN
 	ORDER BY
 	p.IDPRODUCTO, o.Fecha DESC;
 
+	SELECT 
+p.IDPRODUCTO,
+p.Nombre AS Cliente,
+p.Precio,
+o.IDORDEN,
+o.Fecha,
+o.Total,
+c.Nombre
+from Ordenes o
+
+FULL JOIN 
+	Productos p ON o.IDPRODUCTO = p.IDPRODUCTO
+FULL JOIN
+	Clientes c ON o.IDCLIENTE = c.IDCLIENTE
+	ORDER BY
+	p.IDPRODUCTO, o.Fecha DESC;
+
+
+
 
