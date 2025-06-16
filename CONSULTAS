@@ -120,3 +120,35 @@ LEFT JOIN
 	where c.ciudad like 'C%'
 	ORDER BY 
 	c.Nombre, o.Fecha DESC;
+
+--clientes sin compras--
+	select
+	c.IDCLIENTE,
+	c.Nombre AS Cliente,
+	c.Ciudad,
+	o.Fecha, o.Total
+
+	from
+		Clientes c
+	LEFT JOIN 
+		Ordenes o on c.IDCLIENTE = o.IDCLIENTE
+		Where
+		o.Fecha is null
+
+SELECT 
+p.IDPRODUCTO,
+p.Nombre AS Cliente,
+p.Precio,
+o.IDORDEN,
+o.Fecha,
+o.Total,
+c.Nombre
+from Ordenes o
+RIGHT JOIN 
+	Productos p ON o.IDPRODUCTO = p.IDPRODUCTO
+RIGHT JOIN
+	Clientes c ON o.IDCLIENTE = c.IDCLIENTE
+	ORDER BY
+	p.IDPRODUCTO, o.Fecha DESC;
+
+
